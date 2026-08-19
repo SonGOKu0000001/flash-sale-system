@@ -1,0 +1,26 @@
+# 敏感配置
+demo_flash_sale/src/main/resources/application.yml
+
+# Java / Maven
+**/target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+*.log
+logs/
+
+# IDE
+**/.idea/
+*.iml
+.vscode/
+.vs/
+
+# Node / Vue
+**/node_modules/
+**/dist/
+*.local
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
