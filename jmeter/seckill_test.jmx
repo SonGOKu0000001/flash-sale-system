@@ -3,7 +3,7 @@
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="限时抢购系统 - 压测计划" enabled="true">
       <stringProp name="TestPlan.comments">压测前准备：
-1. 启动 MySQL/Redis/RabbitMQ 和后端(8080)
+1. 启动 MySQL/Redis/RabbitMQ 和后端(10086)
 2. 重置数据：MySQL 清空 t_order、重置 stock_count；Redis FLUSHDB 后 SET seckill:stock:{activityId} 10000
 3. 测核心逻辑请临时调高 application.yml 限流（rate/burst 改为 10000），测完还原
 4. user.csv 需放在 jmeter 的 bin 目录（或此处填绝对路径）
@@ -45,7 +45,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="用户参数化(user.csv)" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">E:/code/java/限时抢购系统/jmeter/user.csv</stringProp>
+          <stringProp name="filename">${__testPlanFileDir()}/user.csv</stringProp>
           <boolProp name="ignoreFirstLine">true</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
@@ -110,7 +110,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="用户参数化(user.csv)" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">E:/code/java/限时抢购系统/jmeter/user.csv</stringProp>
+          <stringProp name="filename">${__testPlanFileDir()}/user.csv</stringProp>
           <boolProp name="ignoreFirstLine">true</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
