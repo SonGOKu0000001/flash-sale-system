@@ -36,6 +36,7 @@ public class RabbitMQConfig {
         args.put("x-dead-letter-exchange", SECKILL_DLX_EXCHANGE);
         args.put("x-dead-letter-routing-key", SECKILL_ROUTING_KEY);
         args.put("x-message-ttl", 30000);
+        args.put("x-queue-mode", "lazy");
         return new Queue(SECKILL_QUEUE, true, false, false, args);
     }
 
@@ -52,7 +53,9 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue dlxQueue() {
-        return new Queue(SECKILL_DLX_QUEUE, true);
+        Map<String, Object> args = new HashMap<>();
+        args.put("x-queue-mode", "lazy");
+        return new Queue(SECKILL_DLX_QUEUE, true, false, false, args);
     }
 
     @Bean
